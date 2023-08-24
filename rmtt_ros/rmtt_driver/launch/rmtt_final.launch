@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<launch>
+    <include file="$(find rmtt_description)/launch/rmtt_description.launch">
+    </include>
+    <include file="$(find rmtt_apriltag)/launch/detection.launch">
+    </include>
+    <include file="$(find rmtt_tracker)/launch/rmtt_tag_tracker.launch">
+    </include>
+    <node pkg="rmtt_tracker" name="circle_tracker" type="rmtt_circle_detection.py"/>
+    <node pkg="rmtt_tracker" name="pid" type="rmtt_circle_tracker.py"/>
+    <node pkg="rmtt_driver" name="rotate_pose_node" type="rotate_pose.py"/>
+<!--     <node pkg="rmtt_tracker" name="go2pos" type="go2pose.py"/> -->
+    <node pkg="rmtt_tracker" name="stanley" type="stanley.py"/>
+<!--     <node pkg="tf" type="static_transform_publisher" name="map_base_link" args="0 0 0 0 0 0 base_link map 100" /> -->
+<!--     <node pkg="rmtt_tracker" name="state_machine" type="rmtt_smach.py"/> -->
+</launch>

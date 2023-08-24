@@ -1,0 +1,6 @@
+<launch>
+    <include file="$(find tianbot_mini)/launch/bringup.launch" />
+    <include file="$(find tianbot_mini)/launch/lidar.launch" />
+    <include file="$(find tianbot_mini)/launch/amcl.launch" />
+    <node pkg="tf" type="static_transform_publisher" name="map_tf" args="0 0 0 0 0 0 map tianbot_mini/map 100" />
+</launch>
